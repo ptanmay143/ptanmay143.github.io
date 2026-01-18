@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tanmay Pachpande | Data Scientist & Developer</title>
+    <title>Tanmay Pachpande | Data Scientist & Computer Engineer</title>
     <link rel="stylesheet" href="styles/theme.css" />
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/responsive.css" />
@@ -17,15 +17,24 @@
         <div class="header-content">
           <div class="header-text">
             <h1>TANMAY_PACHPANDE</h1>
-            <p class="subtitle">Data Scientist & Software Developer</p>
+            <p class="subtitle">Data Scientist & Computer Engineer</p>
           </div>
-          <button
-            id="themeToggle"
-            class="theme-toggle"
-            aria-label="Toggle theme"
-          >
-            <span class="theme-icon">☀️</span>
-          </button>
+          <div class="header-buttons">
+            <button
+              id="themeToggle"
+              class="theme-toggle"
+              aria-label="Toggle theme"
+            >
+              <span class="theme-icon">🌙</span>
+            </button>
+            <button
+              id="exportResume"
+              class="export-resume-btn"
+              aria-label="Export as ATS Resume"
+            >
+              📥 Export Resume
+            </button>
+          </div>
         </div>
         <nav class="nav-links">
           <a href="#about">About</a>
@@ -33,6 +42,7 @@
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#education">Education</a>
+          <a href="#certifications">Certifications</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -50,6 +60,7 @@
         <div class="container">
           <h2 class="section-title">EXPERIENCE</h2>
           <div id="experienceContent"></div>
+          <div id="nonTechExperienceContent"></div>
         </div>
       </section>
 
@@ -74,6 +85,27 @@
         </div>
       </section>
 
+      <section id="certifications" class="section">
+        <div class="container">
+          <h2 class="section-title">CERTIFICATIONS</h2>
+          <div id="certificationsContent"></div>
+        </div>
+      </section>
+
+      <section id="publications" class="section">
+        <div class="container">
+          <h2 class="section-title">PUBLICATIONS</h2>
+          <div id="publicationsContent"></div>
+        </div>
+      </section>
+
+      <section id="extracurricular" class="section">
+        <div class="container">
+          <h2 class="section-title">LEADERSHIP & EXTRACURRICULAR</h2>
+          <div id="extracurricularContent"></div>
+        </div>
+      </section>
+
       <section id="contact" class="section">
         <div class="container">
           <h2 class="section-title">CONTACT</h2>
@@ -92,6 +124,7 @@
     <script src="scripts/render.js"></script>
     <script src="scripts/theme.js"></script>
     <script src="scripts/animations.js"></script>
+    <script src="scripts/ats-export.js"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>
