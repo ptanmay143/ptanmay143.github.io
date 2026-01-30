@@ -40,17 +40,26 @@ The entire portfolio content is stored in a single file. Just edit it and reload
 ```javascript
 // Edit data/content.js
 const portfolioData = {
-  about: {
+  contact: {
     name: "Your Name",
-    title: "Your Title",
-    intro: "Your introduction..."
+    email: "your.email@example.com",
+    phone: "+1 234 567 890",
+    // ... other contact info
+  },
+  about: {
+    intro: "Your introduction with <span class=\"highlight\">key skills</span>...",
+    workRights: { /* optional */ }
   },
   experience: [
     {
       title: "Software Engineer",
       company: "Tech Company",
-      period: "2020 - Present",
-      description: "What you did..."
+      location: "City, Country",
+      date: "Jan 2020 - Present",
+      responsibilities: [
+        "What you did...",
+        "Another achievement..."
+      ]
     }
   ],
   // ... add your projects, skills, education, etc.
