@@ -23,7 +23,7 @@ const portfolioData = {
     {
       title: "Data Engineer: Cloud Data and Automation Engineering",
       company: "Vertage Global (ex-Impellam)",
-      location: "Sydney, NSW, Australia (Hybrid)",
+      location: "Sydney, NSW, Australia",
       date: "Oct 2025 – Present",
       responsibilities: [
         "Working on cloud data infrastructure and automation engineering solutions",
@@ -34,7 +34,7 @@ const portfolioData = {
     {
       title: "Capstone Team Lead (Engine Team)",
       company: "DataBytes (Project Echo)",
-      location: "Melbourne, VIC, Australia (Hybrid)",
+      location: "Melbourne, VIC, Australia",
       date: "Jul 2023 – Jun 2024",
       responsibilities: [
         "Led a 50-member team to develop an AI solution for classifying Otway rainforest animals based on their sounds",
@@ -246,7 +246,7 @@ const portfolioData = {
     {
       degree: "Master of Data Science",
       university: "Deakin University",
-      gpa: "78.5 WAM/100",
+      gpa: "WAM 78.5/100",
       date: "Nov 2022 – Sep 2024",
       location: "Melbourne, VIC, Australia",
     },
@@ -259,7 +259,7 @@ const portfolioData = {
     {
       degree: "Bachelor of Computer Engineering",
       university: "University of Mumbai",
-      gpa: "7.46 CGPA/10",
+      gpa: "CGPA 7.46/10",
       date: "Aug 2017 – Jul 2021",
       location: "Mumbai, MH, India",
     },
