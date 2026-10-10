@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function showExportOptions() {
   const options = [
     {
-      label: "Download as TXT (ATS Optimized)",
+      label: "Download as .TXT",
       action: downloadATSResume,
     },
     {

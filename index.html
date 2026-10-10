@@ -1,130 +1,126 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tanmay Pachpande | Data Scientist & Computer Engineer</title>
-    <link rel="stylesheet" href="styles/theme.css" />
-    <link rel="stylesheet" href="styles/main.css" />
-    <link rel="stylesheet" href="styles/responsive.css" />
-  </head>
-  <body>
-    <canvas class="matrix-bg" id="matrixCanvas"></canvas>
-    <div class="binary-animation" id="binaryText"></div>
 
-    <header>
-      <div class="container">
-        <div class="header-content">
-          <div class="header-text">
-            <h1>TANMAY_PACHPANDE</h1>
-            <p class="subtitle">Data Scientist & Computer Engineer</p>
-          </div>
-          <div class="header-buttons">
-            <button
-              id="themeToggle"
-              class="theme-toggle"
-              aria-label="Toggle theme"
-            >
-              <span class="theme-icon">🌙</span>
-            </button>
-            <button
-              id="exportResume"
-              class="export-resume-btn"
-              aria-label="Export as ATS Resume"
-            >
-              📥 Export Resume
-            </button>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tanmay Pachpande | Data Scientist & Computer Engineer</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="styles/theme.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
+</head>
+
+<body>
+  <canvas class="matrix-bg" id="matrixCanvas"></canvas>
+  <div class="binary-animation" id="binaryText"></div>
+
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="header-text">
+          <h1>TANMAY PACHPANDE</h1>
+          <p class="subtitle">Data Scientist & Computer Engineer</p>
         </div>
-        <nav class="nav-links">
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#education">Education</a>
-          <a href="#certifications">Certifications</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <div class="header-buttons">
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+          </button>
+          <button id="exportResume" class="export-resume-btn" aria-label="Export as ATS Resume">
+            📥
+          </button>
+        </div>
       </div>
-    </header>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-      <section id="about" class="section">
-        <div class="container">
-          <h2 class="section-title">ABOUT_ME</h2>
-          <div id="aboutContent"></div>
-        </div>
-      </section>
-
-      <section id="experience" class="section">
-        <div class="container">
-          <h2 class="section-title">EXPERIENCE</h2>
-          <div id="experienceContent"></div>
-          <div id="nonTechExperienceContent"></div>
-        </div>
-      </section>
-
-      <section id="skills" class="section">
-        <div class="container">
-          <h2 class="section-title">SKILLS</h2>
-          <div id="skillsContent"></div>
-        </div>
-      </section>
-
-      <section id="projects" class="section">
-        <div class="container">
-          <h2 class="section-title">PROJECTS</h2>
-          <div id="projectsContent"></div>
-        </div>
-      </section>
-
-      <section id="education" class="section">
-        <div class="container">
-          <h2 class="section-title">EDUCATION</h2>
-          <div id="educationContent"></div>
-        </div>
-      </section>
-
-      <section id="certifications" class="section">
-        <div class="container">
-          <h2 class="section-title">CERTIFICATIONS</h2>
-          <div id="certificationsContent"></div>
-        </div>
-      </section>
-
-      <section id="publications" class="section">
-        <div class="container">
-          <h2 class="section-title">PUBLICATIONS</h2>
-          <div id="publicationsContent"></div>
-        </div>
-      </section>
-
-      <section id="extracurricular" class="section">
-        <div class="container">
-          <h2 class="section-title">LEADERSHIP & EXTRACURRICULAR</h2>
-          <div id="extracurricularContent"></div>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <div class="container">
-          <h2 class="section-title">CONTACT</h2>
-          <div id="contactContent"></div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
+  <main>
+    <section id="about" class="section">
       <div class="container">
-        <p>© 2025 Tanmay Pachpande. Built with passion for data and code.</p>
+        <h2 class="section-title">ABOUT ME</h2>
+        <div id="aboutContent"></div>
       </div>
-    </footer>
+    </section>
 
-    <script src="data/content.js"></script>
-    <script src="scripts/render.js"></script>
-    <script src="scripts/theme.js"></script>
-    <script src="scripts/animations.js"></script>
-    <script src="scripts/ats-export.js"></script>
-    <script src="scripts/main.js"></script>
-  </body>
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title">EXPERIENCE</h2>
+        <div id="experienceContent"></div>
+        <div id="nonTechExperienceContent"></div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">SKILLS</h2>
+        <div id="skillsContent"></div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">PROJECTS</h2>
+        <div id="projectsContent"></div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">EDUCATION</h2>
+        <div id="educationContent"></div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section">
+      <div class="container">
+        <h2 class="section-title">CERTIFICATIONS</h2>
+        <div id="certificationsContent"></div>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <div class="container">
+        <h2 class="section-title">PUBLICATIONS</h2>
+        <div id="publicationsContent"></div>
+      </div>
+    </section>
+
+    <section id="extracurricular" class="section">
+      <div class="container">
+        <h2 class="section-title">LEADERSHIP & EXTRACURRICULAR</h2>
+        <div id="extracurricularContent"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">CONTACT</h2>
+        <div id="contactContent"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>©️ Tanmay Pachpande - Built with ❤️</p>
+    </div>
+  </footer>
+
+  <script src="data/content.js"></script>
+  <script src="scripts/render.js"></script>
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/animations.js"></script>
+  <script src="scripts/ats-export.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+
 </html>

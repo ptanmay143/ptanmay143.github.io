@@ -22,7 +22,7 @@ const portfolioData = {
   experience: [
     {
       title: "Data Engineer: Cloud Data and Automation Engineering",
-      company: "Impellam Group",
+      company: "Vertage Global (ex-Impellam)",
       location: "Sydney, NSW, Australia (Hybrid)",
       date: "Oct 2025 – Present",
       responsibilities: [
@@ -49,7 +49,7 @@ const portfolioData = {
     {
       title: "Chatbot Developer Intern",
       company: "Chic Infotech",
-      location: "Navi Mumbai, Maharashtra, India",
+      location: "Navi Mumbai, MH, India",
       date: "Nov 2019 – Jan 2020",
       responsibilities: [
         "Created a chatbot for an online banking portal client to answer common user queries",
@@ -61,7 +61,7 @@ const portfolioData = {
     {
       title: "Data Science Intern",
       company: "Bennett University",
-      location: "Noida, Uttar Pradesh, India",
+      location: "Noida, UP, India",
       date: "Jun 2019 – Aug 2019",
       responsibilities: [
         "Implemented the HP PointNet neural network architecture for 3D point cloud classification using Keras and HDF5",
@@ -254,14 +254,14 @@ const portfolioData = {
       degree: "Certificate in Business Analytics and Data Science",
       university: "IMS Proschool Pvt. Ltd.",
       date: "Jul 2021 – Jul 2022",
-      location: "Mumbai, Maharashtra, India",
+      location: "Mumbai, MH, India",
     },
     {
       degree: "Bachelor of Computer Engineering",
       university: "University of Mumbai",
       gpa: "7.46 CGPA/10",
       date: "Aug 2017 – Jul 2021",
-      location: "Mumbai, Maharashtra, India",
+      location: "Mumbai, MH, India",
     },
   ],
 
@@ -341,7 +341,7 @@ const portfolioData = {
     {
       label: "LOCATION",
       value: "Sydney, NSW, Australia",
-      link: null,
+      link: "https://www.instagram.com/sydney",
     },
     {
       label: "GITHUB",
