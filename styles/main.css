@@ -60,6 +60,15 @@ h1 {
   font-weight: 500;
 }
 
+/* Active navigation link (currently visible section) */
+.nav-links a.active {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--bg-secondary);
+  font-weight: 600;
+}
+
+/* Hover and focus states */
 .nav-links a:hover,
 .nav-links a:focus {
   border-color: var(--primary);
@@ -67,6 +76,20 @@ h1 {
   background: var(--bg-secondary);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* When hovering over the navbar, suppress active state on other links so only the hovered link is highlighted */
+.nav-links:hover a.active:not(:hover) {
+  border-color: var(--border);
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transform: none;
+  box-shadow: none;
+  font-weight: 500;
+}
+
+.mobile-menu-toggle {
+  display: none;
 }
 
 .section {
@@ -110,14 +133,73 @@ h1 {
   font-weight: 600;
 }
 
+.hero-section {
+  padding: 40px 0 20px;
+}
+
+.about-hero-card,
+.about-card,
 .work-rights {
   background: var(--bg-card);
-  padding: 20px 25px;
-  border-left: 4px solid var(--accent);
-  margin-top: 30px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  padding: 28px 32px;
   color: var(--text-secondary);
-  border-radius: 8px;
-  box-shadow: 0 2px 8px var(--shadow);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.about-hero-card:hover {
+  box-shadow: 0 6px 24px var(--shadow-hover);
+}
+
+.about-hero-card .intro,
+.about-card .intro {
+  max-width: 100%;
+  font-size: 1.15em;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.about-hero-card .intro {
+  margin-bottom: 22px;
+}
+
+.hero-contact-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px dashed var(--border);
+}
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.contact-pill:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--bg-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.contact-pill .pill-icon {
+  font-size: 1.05em;
 }
 
 .work-rights strong {
@@ -236,6 +318,112 @@ h1 {
   left: 0;
   color: var(--accent);
   font-weight: bold;
+}
+
+/* Non-Technical Collapsible Experience */
+.non-tech-details {
+  margin-top: 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.non-tech-details:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 16px var(--shadow-hover);
+}
+
+.non-tech-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 16px 22px;
+  cursor: pointer;
+  user-select: none;
+  background: var(--bg-secondary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  list-style: none;
+}
+
+.non-tech-summary::-webkit-details-marker {
+  display: none;
+}
+
+.non-tech-summary::marker {
+  display: none;
+}
+
+.summary-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.summary-arrow {
+  color: var(--accent);
+  font-size: 0.8em;
+  transition: transform 0.25s ease;
+  display: inline-block;
+}
+
+details[open] .summary-arrow {
+  transform: rotate(90deg);
+}
+
+.summary-title {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
+.summary-note {
+  color: var(--text-dim);
+  font-size: 0.9em;
+}
+
+.summary-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.summary-badge {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--primary);
+  font-size: 0.8em;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-action-text {
+  color: var(--text-dim);
+  font-size: 0.85em;
+}
+
+.non-tech-body {
+  padding: 24px 22px 10px;
+  border-top: 1px solid var(--border);
+  animation: fadeIn 0.3s ease;
+}
+
+.non-tech-timeline-item {
+  margin-bottom: 20px;
+  background: var(--bg-primary);
+  border-left-color: var(--text-dim);
+}
+
+.non-tech-timeline-item::before {
+  color: var(--text-dim);
 }
 
 .skills-grid {
@@ -387,38 +575,110 @@ h1 {
   font-weight: 600;
 }
 
-footer {
-  padding: 40px 0;
-  text-align: center;
+footer,
+.site-footer {
+  padding: 40px 0 30px;
   color: var(--text-dim);
   background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
 }
 
-footer p {
-  font-size: 0.95em;
-}
-/* Export Resume Button */
-.export-resume-btn {
-  background: var(--bg-card);
-  border: 2px solid var(--border);
-  color: var(--text-primary);
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.95em;
-  font-weight: 600;
-  transition: all 0.3s ease;
+.footer-discrete-bar {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9em;
 }
 
+.footer-work-rights {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  text-align: left;
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  flex-shrink: 0;
+  animation: pulseStatus 2s infinite ease-in-out;
+}
+
+@keyframes pulseStatus {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
+}
+
+.work-rights-title {
+  color: var(--primary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.work-rights-desc {
+  color: var(--text-dim);
+}
+
+.footer-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.discrete-export-btn,
+.export-resume-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.discrete-export-btn:hover,
 .export-resume-btn:hover {
   border-color: var(--primary);
   color: var(--primary);
-  background: var(--bg-secondary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow-hover);
+  background: var(--bg-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.discrete-export-btn .export-icon {
+  font-size: 1.1em;
+}
+
+.footer-bottom {
+  text-align: center;
+}
+
+.footer-bottom p,
+footer p {
+  font-size: 0.9em;
+  color: var(--text-dim);
 }
 
 /* Export Modal */
@@ -549,6 +809,7 @@ footer p {
 
 .certifications-list,
 .publications-list,
+.community-list,
 .extracurricular-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -557,6 +818,7 @@ footer p {
 
 .cert-item,
 .pub-item,
+.community-item,
 .extracurr-item {
   background: var(--bg-card);
   padding: 25px;
@@ -567,6 +829,7 @@ footer p {
 
 .cert-item:hover,
 .pub-item:hover,
+.community-item:hover,
 .extracurr-item:hover {
   border-color: var(--primary);
   transform: translateY(-3px);
@@ -575,6 +838,7 @@ footer p {
 
 .cert-item h3,
 .pub-item h3,
+.community-item h3,
 .extracurr-item h3 {
   color: var(--primary);
   margin-bottom: 10px;
@@ -584,6 +848,7 @@ footer p {
 
 .cert-issuer,
 .pub-journal,
+.community-org,
 .extracurr-org {
   color: var(--text-secondary);
   font-weight: 600;
@@ -592,6 +857,7 @@ footer p {
 
 .cert-date,
 .pub-date,
+.community-date,
 .extracurr-date {
   color: var(--text-dim);
   font-size: 0.9em;
@@ -599,6 +865,7 @@ footer p {
 }
 
 .pub-description,
+.community-desc,
 .extracurr-desc {
   color: var(--text-secondary);
   line-height: 1.6;

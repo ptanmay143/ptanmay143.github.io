@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tanmay Pachpande | Data Scientist & Computer Engineer</title>
+  <title>Tanmay Pachpande | Data Engineer @ Vertage Global</title>
   <link rel="icon" type="image/svg+xml" href="docs/images/logo.svg">
   <link rel="stylesheet" href="styles/theme.css" />
   <link rel="stylesheet" href="styles/main.css" />
@@ -20,33 +20,35 @@
       <div class="header-content">
         <div class="header-text">
           <h1>TANMAY PACHPANDE</h1>
-          <p class="subtitle">Data Scientist & Computer Engineer</p>
+          <p class="subtitle">Data Engineer @ Vertage Global</p>
         </div>
         <div class="header-buttons">
           <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
             <span class="theme-icon">🌙</span>
           </button>
-          <button id="exportResume" class="export-resume-btn" aria-label="Export as ATS Resume">
-            📥
+          <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
           </button>
         </div>
       </div>
-      <nav class="nav-links">
-        <a href="#about">About</a>
+      <nav class="nav-links" id="navLinks">
         <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
         <a href="#education">Education</a>
         <a href="#certifications">Certifications</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#publications">Publications</a>
+        <a href="#community">Community</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section id="about" class="section">
+    <section id="about" class="hero-section">
       <div class="container">
-        <h2 class="section-title">ABOUT ME</h2>
         <div id="aboutContent"></div>
       </div>
     </section>
@@ -56,20 +58,6 @@
         <h2 class="section-title">EXPERIENCE</h2>
         <div id="experienceContent"></div>
         <div id="nonTechExperienceContent"></div>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <div class="container">
-        <h2 class="section-title">SKILLS</h2>
-        <div id="skillsContent"></div>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="container">
-        <h2 class="section-title">PROJECTS</h2>
-        <div id="projectsContent"></div>
       </div>
     </section>
 
@@ -87,6 +75,20 @@
       </div>
     </section>
 
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">PROJECTS</h2>
+        <div id="projectsContent"></div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">SKILLS</h2>
+        <div id="skillsContent"></div>
+      </div>
+    </section>
+
     <section id="publications" class="section">
       <div class="container">
         <h2 class="section-title">PUBLICATIONS</h2>
@@ -94,10 +96,10 @@
       </div>
     </section>
 
-    <section id="extracurricular" class="section">
+    <section id="community" class="section">
       <div class="container">
-        <h2 class="section-title">LEADERSHIP & EXTRACURRICULAR</h2>
-        <div id="extracurricularContent"></div>
+        <h2 class="section-title">COMMUNITY & MENTORSHIP</h2>
+        <div id="communityContent"></div>
       </div>
     </section>
 
@@ -109,9 +111,24 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      <p>©️ Tanmay Pachpande - Built with ❤️</p>
+      <div class="footer-discrete-bar">
+        <div class="footer-work-rights" id="footerWorkRights">
+          <span class="status-indicator" aria-hidden="true"></span>
+          <span class="work-rights-title">Work Rights:</span>
+          <span class="work-rights-desc">485 Graduate VISA with Australian unrestricted full working rights, valid until October 21, 2029</span>
+        </div>
+        <div class="footer-actions">
+          <button id="exportResume" class="discrete-export-btn" type="button" aria-label="Export ATS Resume">
+            <span class="export-icon" aria-hidden="true">📄</span>
+            <span>Export Resume</span>
+          </button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>©️ Tanmay Pachpande - Built with ❤️</p>
+      </div>
     </div>
   </footer>
 

@@ -1,15 +1,62 @@
-// Main initialization and utilities
+// Mobile menu controller
+function initMobileMenu() {
+  const toggleBtn = document.getElementById("mobileMenuToggle");
+  const nav = document.getElementById("navLinks");
+
+  if (!toggleBtn || !nav) return;
+
+  toggleBtn.addEventListener("click", () => {
+    const isExpanded = toggleBtn.getAttribute("aria-expanded") === "true";
+    toggleBtn.setAttribute("aria-expanded", String(!isExpanded));
+    toggleBtn.classList.toggle("active");
+    nav.classList.toggle("active");
+  });
+
+  // Close menu on click outside
+  document.addEventListener("click", (e) => {
+    if (
+      nav.classList.contains("active") &&
+      !nav.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      toggleBtn.classList.remove("active");
+      toggleBtn.setAttribute("aria-expanded", "false");
+      nav.classList.remove("active");
+    }
+  });
+
+  // Close menu on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && nav.classList.contains("active")) {
+      toggleBtn.classList.remove("active");
+      toggleBtn.setAttribute("aria-expanded", "false");
+      nav.classList.remove("active");
+      toggleBtn.focus();
+    }
+  });
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
+    const href = this.getAttribute("href");
+    if (!href || href === "#") return;
+    const target = document.querySelector(href);
     if (target) {
-      const headerOffset = 80;
-      const elementPosition = target.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - headerOffset;
+      e.preventDefault();
+
+      // Close mobile menu if open
+      const toggleBtn = document.getElementById("mobileMenuToggle");
+      const nav = document.getElementById("navLinks");
+      if (toggleBtn && nav && nav.classList.contains("active")) {
+        toggleBtn.classList.remove("active");
+        toggleBtn.setAttribute("aria-expanded", "false");
+        nav.classList.remove("active");
+      }
+
+      const headerOffset = 75;
+      const elementPosition = target.offsetTop;
+      const offsetPosition = Math.max(0, elementPosition - headerOffset);
 
       window.scrollTo({
         top: offsetPosition,
@@ -28,21 +75,16 @@ function updateActiveNavLink() {
 
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (window.pageYOffset >= sectionTop - 100) {
+    if (window.pageYOffset >= sectionTop - 120) {
       currentSection = section.getAttribute("id");
     }
   });
 
   navLinks.forEach((link) => {
-    link.style.borderColor = "var(--border)";
-    link.style.color = "var(--text-primary)";
-    link.style.background = "var(--bg-card)";
-
     if (link.getAttribute("href") === `#${currentSection}`) {
-      link.style.borderColor = "var(--primary)";
-      link.style.color = "var(--primary)";
-      link.style.background = "var(--bg-secondary)";
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
     }
   });
 }
@@ -67,7 +109,7 @@ const observer = new IntersectionObserver((entries) => {
 // Apply fade-in effect to all sections
 function initFadeInAnimations() {
   const elements = document.querySelectorAll(
-    ".timeline-item, .skill-category, .project-card, .education-item, .contact-item"
+    ".about-hero-card, .timeline-item, .skill-category, .project-card, .education-item, .cert-item, .pub-item, .community-item, .extracurr-item, .contact-item"
   );
 
   elements.forEach((element) => {
@@ -98,6 +140,7 @@ window.addEventListener("scroll", () => {
 document.addEventListener("DOMContentLoaded", () => {
   initializeContent();
   initAnimations();
+  initMobileMenu();
 
   // Small delay to ensure content is rendered before applying animations
   setTimeout(() => {

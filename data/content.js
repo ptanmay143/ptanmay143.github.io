@@ -251,12 +251,6 @@ const portfolioData = {
       location: "Melbourne, VIC, Australia",
     },
     {
-      degree: "Certificate in Business Analytics and Data Science",
-      university: "IMS Proschool Pvt. Ltd.",
-      date: "Jul 2021 – Jul 2022",
-      location: "Mumbai, MH, India",
-    },
-    {
       degree: "Bachelor of Computer Engineering",
       university: "University of Mumbai",
       gpa: "CGPA 7.46/10",

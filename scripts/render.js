@@ -1,15 +1,45 @@
-// Render functions for content sections
+// Helper function for contact icons
+function getContactIcon(label) {
+  const normalized = (label || "").toUpperCase();
+  if (normalized.includes("EMAIL")) return "✉️";
+  if (normalized.includes("PHONE")) return "📱";
+  if (normalized.includes("LOCATION")) return "📍";
+  if (normalized.includes("GITHUB")) return "🐙";
+  if (normalized.includes("LINKEDIN")) return "💼";
+  if (normalized.includes("WEBSITE")) return "🌐";
+  return "🔗";
+}
 
 function renderAbout() {
   const aboutContent = document.getElementById("aboutContent");
+  if (!aboutContent) return;
+
+  const quickLinksHtml = (portfolioData.contactLinks || [])
+    .map((item) => {
+      const icon = getContactIcon(item.label);
+      if (item.link) {
+        return `<a href="${item.link}" class="contact-pill" ${
+          item.link.startsWith("http") ? 'target="_blank" rel="noopener noreferrer"' : ""
+        } aria-label="${item.label}: ${item.value}">
+          <span class="pill-icon" aria-hidden="true">${icon}</span>
+          <span class="pill-text">${item.value}</span>
+        </a>`;
+      }
+      return `<div class="contact-pill">
+        <span class="pill-icon" aria-hidden="true">${icon}</span>
+        <span class="pill-text">${item.value}</span>
+      </div>`;
+    })
+    .join("");
+
   aboutContent.innerHTML = `
-        <div class="work-rights">
-            <p class="intro">${portfolioData.about.intro}</p>
-        </div>
-        <div class="work-rights">
-            <strong>${portfolioData.about.workRights.title}</strong> ${portfolioData.about.workRights.description}
-        </div>
-    `;
+    <div class="about-hero-card">
+      <p class="intro">${portfolioData.about.intro}</p>
+      <div class="hero-contact-pills">
+        ${quickLinksHtml}
+      </div>
+    </div>
+  `;
 }
 
 function renderExperience() {
@@ -40,14 +70,18 @@ function renderExperience() {
 
 function renderNonTechnicalExperience() {
   const nonTechContent = document.getElementById("nonTechExperienceContent");
-  if (!nonTechContent) return;
+  if (
+    !nonTechContent ||
+    !portfolioData.nonTechnicalExperience ||
+    portfolioData.nonTechnicalExperience.length === 0
+  )
+    return;
 
-  const html = `
-    <h3 class="subsection-title">Non-Technical Experience</h3>
-    ${portfolioData.nonTechnicalExperience
-      .map(
-        (job) => `
-      <div class="timeline-item">
+  const count = portfolioData.nonTechnicalExperience.length;
+  const itemsHtml = portfolioData.nonTechnicalExperience
+    .map(
+      (job) => `
+      <div class="timeline-item non-tech-timeline-item">
           <div class="job-header">
               <div>
                   <div class="job-title">${job.title}</div>
@@ -61,10 +95,40 @@ function renderNonTechnicalExperience() {
           </ul>
       </div>
   `,
-      )
-      .join("")}
+    )
+    .join("");
+
+  const html = `
+    <details class="non-tech-details" id="nonTechDetails">
+      <summary class="non-tech-summary">
+        <div class="summary-left">
+          <span class="summary-arrow" aria-hidden="true">▶</span>
+          <span class="summary-title">Additional Work Experience</span>
+          <span class="summary-note">(Customer Service & Operations)</span>
+        </div>
+        <div class="summary-right">
+          <span class="summary-badge">${count} roles</span>
+          <span class="summary-action-text">Click to expand</span>
+        </div>
+      </summary>
+      <div class="non-tech-body">
+        ${itemsHtml}
+      </div>
+    </details>
   `;
   nonTechContent.innerHTML = html;
+
+  const details = document.getElementById("nonTechDetails");
+  if (details) {
+    details.addEventListener("toggle", () => {
+      const actionText = details.querySelector(".summary-action-text");
+      if (actionText) {
+        actionText.textContent = details.open
+          ? "Click to collapse"
+          : "Click to expand";
+      }
+    });
+  }
 }
 
 function renderSkills() {
@@ -191,50 +255,73 @@ function renderPublications() {
   pubContent.innerHTML = html;
 }
 
-function renderExtracurricular() {
-  const extContent = document.getElementById("extracurricularContent");
-  if (!extContent) return;
+function renderCommunity() {
+  const commContent =
+    document.getElementById("communityContent") ||
+    document.getElementById("extracurricularContent");
+  if (!commContent) return;
 
+  const items =
+    portfolioData.community || portfolioData.extracurricular || [];
   const html = `
-    <div class="extracurricular-list">
-      ${portfolioData.extracurricular
+    <div class="community-list extracurricular-list">
+      ${items
         .map(
           (item) => `
-        <div class="extracurr-item">
+        <div class="community-item extracurr-item">
           <h3>${item.title}</h3>
-          <p class="extracurr-org">${item.organization}</p>
-          <p class="extracurr-date">${item.date}</p>
-          <p class="extracurr-desc">${item.description}</p>
+          <p class="community-org extracurr-org">${item.organization}</p>
+          <p class="community-date extracurr-date">${item.date}</p>
+          <p class="community-desc extracurr-desc">${item.description}</p>
         </div>
       `,
         )
         .join("")}
     </div>
   `;
-  extContent.innerHTML = html;
+  commContent.innerHTML = html;
+}
+
+// Backward compatibility alias
+function renderExtracurricular() {
+  renderCommunity();
 }
 
 function renderContact() {
   const contactContent = document.getElementById("contactContent");
+  if (!contactContent) return;
+
   const html = `
         <div class="contact-grid">
             ${portfolioData.contactLinks
-              .map(
-                (item) => `
+              .map((item) => {
+                const icon = getContactIcon(item.label);
+                return `
                 <div class="contact-item">
-                    <span>${item.label}</span>
+                    <span class="contact-item-label">${icon} ${item.label}</span>
                     ${
                       item.link
-                        ? `<a href="${item.link}">${item.value}</a>`
+                        ? `<a href="${item.link}" ${item.link.startsWith("http") ? 'target="_blank" rel="noopener noreferrer"' : ""}>${item.value}</a>`
                         : `<div>${item.value}</div>`
                     }
                 </div>
-            `,
-              )
+            `;
+              })
               .join("")}
         </div>
     `;
   contactContent.innerHTML = html;
+}
+
+function renderWorkRights() {
+  const footerWorkRights = document.getElementById("footerWorkRights");
+  if (footerWorkRights && portfolioData.about && portfolioData.about.workRights) {
+    footerWorkRights.innerHTML = `
+      <span class="status-indicator" aria-hidden="true"></span>
+      <span class="work-rights-title">${portfolioData.about.workRights.title}</span>
+      <span class="work-rights-desc">${portfolioData.about.workRights.description}</span>
+    `;
+  }
 }
 
 // Initialize all content
@@ -247,6 +334,7 @@ function initializeContent() {
   renderEducation();
   renderCertifications();
   renderPublications();
-  renderExtracurricular();
+  renderCommunity();
   renderContact();
+  renderWorkRights();
 }
