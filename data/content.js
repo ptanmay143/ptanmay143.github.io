@@ -11,7 +11,7 @@ const portfolioData = {
   },
 
   about: {
-    intro: `Highly skilled <span class="highlight">data engineer</span>, <span class="highlight">data scientist</span>, and <span class="highlight">computer engineer</span> with a proven ability to lead teams and develop complex AI, machine learning, and data-driven solutions. Currently working in cloud data and automation engineering with experience building and managing <span class="highlight">data pipelines</span>, leveraging <span class="highlight">software development</span> and <span class="highlight">full-stack development</span>, and providing technical leadership in diverse project environments. Possesses a strong foundation in <span class="highlight">project management</span> and a customer-focused mindset gained from professional experience.`,
+    intro: `Results-driven <span class="highlight">Data Engineer</span> and <span class="highlight">Cloud Solutions Specialist</span> with expertise in architecting resilient data pipelines, workflow automations, and scalable machine learning systems. Currently engineering enterprise cloud data infrastructure and automated pipelines at <span class="highlight">Vertage Global</span>. Proven background in cross-functional technical leadership—directing multidisciplinary teams in production AI/ML deployments, cloud migrations, and robust software delivery. Dedicated to transforming complex data into dependable, production-grade platforms that drive measurable impact.`,
     workRights: {
       title: "Work Rights:",
       description:
